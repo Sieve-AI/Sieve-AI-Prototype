@@ -1,53 +1,62 @@
-Sieve-AI-Prototype: BigQuery AI Data Intelligence System
-This repository contains the source code for a prototype that transforms and analyzes unstructured and semi-structured data. It leverages Google Cloud's BigQuery AI and Gemini models to process diverse files and generate actionable insights.
+# Sieve-AI-Prototype: BigQuery AI Data Intelligence System
 
-⚙️ Technical Overview
-The system is a Multimodal Pioneer that implements a "structural redistribution" methodology to solve the "bias of interpretation" in raw data. The core process is a three-phase workflow:
+This repository contains the source code for a prototype that transforms and analyzes unstructured and semi-structured data. It leverages `Google Cloud`'s `BigQuery AI` and `Gemini` models to process diverse files and generate actionable insights.
 
-Data Classification: Ingests and standardizes various file types (text, images, audio) into JSON format.
+## ⚙️ Technical Overview
 
-Data Processing: Uses BigQuery AI and Gemini to perform deep analysis, pattern recognition, and make "smart predictions."
+The system is a *Multimodal Pioneer* that implements a "*structural redistribution*" methodology to solve the "*bias of interpretation*" in raw data. The core process is a three-phase workflow:
 
-Deliverable Preparation: Transforms processed data into final outputs.
+**Data Classification:** Ingests and standardizes various file types (*text, images, audio*) into `JSON` format.
 
-🛠️ Key Technologies
-BigQuery: The central platform for data warehousing and AI functions.
+**Data Processing:** Uses `BigQuery AI` and `Gemini` to perform deep analysis, pattern recognition, and make "*smart predictions.*"
 
-Pandas: Used for manipulating structured datasets in Python.
+**Deliverable Preparation:** Transforms processed data into final outputs.
 
-Gemini: The AI model for interpreting unstructured data.
+## 🛠️ Key Technologies
 
-Cloud Storage: For initial file ingestion.
+**BigQuery:** The central platform for data warehousing and AI functions.
 
-JSON & CSV: For data standardization and final output.
+**Pandas:** Used for manipulating structured datasets in `Python`.
 
-Docker: For consistent and reproducible environments.
+**Gemini:** The AI model for interpreting unstructured data.
 
-🔬 Implementation & Logic
+**Cloud Storage:** For initial file ingestion.
+
+**JSON & CSV:** For data standardization and final output.
+
+**Docker:** For consistent and reproducible environments.
+
+## 🔬 Implementation & Logic
+
 The system classifies data into four core classes:
 
-Measure: For quantitative data.
+**Measure:** For quantitative data.
 
-Label: For descriptive and categorical data.
+**Label:** For descriptive and categorical data.
 
-Transact: For event-based and time-series data.
+**Transact:** For event-based and time-series data.
 
-Condition: For states, ratings, and logical values.
+**Condition:** For states, ratings, and logical values.
 
-Data is transformed following a logical "control route" based on predefined compatibility rules. For example, to get a prediction report, the system processes Measure and Transact data.
+Data is transformed following a logical "*control route*" based on predefined compatibility rules. For example, to get a prediction report, the system processes *Measure and Transact* data.
 
-📊 Architecture
+## 📊 Architecture
+
 The architecture is a three-stage pipeline:
 
-Ingestion: Raw files → Cloud Storage → File Validation → JSON format.
+**Ingestion:** 
+Raw files → Cloud Storage → File Validation → `JSON` format.
 
-Processing: JSON data → Middleware → Specialized Processors (audio_processor.py, image_processor.py) → AI Models (BigQuery AI, Gemini) for analysis.
+**Processing:** 
+JSON data → Middleware → Specialized Processors (*audio_processor.py, image_processor.py*) → AI Models (*BigQuery AI, Gemini*) for analysis.
 
-Delivery: Processed data → Reports (with risk analysis), a Dashboard, and a unified .csv Dataset.
+**Delivery:** 
+Processed data → Reports (*with risk analysis*), a Dashboard, and a unified `.csv` Dataset.
 
-📁 Repository Structure
-├── README.md
-├── .gitignore
+## 📁 Repository Structure
+
+```
+├── README.md├── .gitignore
 ├── cloudbuild.yaml
 ├── config.py
 ├── Dockerfile
@@ -65,9 +74,12 @@ Delivery: Processed data → Reports (with risk analysis), a Dashboard, and a un
     ├── magic_checker.py
     ├── schema.py
     └── test_audio.py
-    
-📹 Demo
+```
+
+## 📹 Video Demo
+
 Video: https://youtu.be/KuITitAtRBQ?si=dwNXLLUhuwPxwL7
 
-⚠️ Important Note
+## ⚠️ Important Note
+
 This is the completed prototype, uploaded without previous version histories. Our team, based in Venezuela, had to work locally due to significant challenges from power outages and unreliable internet connections, a reality of our socio-political context. Despite these difficulties, we are proud to deliver a working version of the prototype.
