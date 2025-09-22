@@ -1,17 +1,17 @@
 """
-Utilidad para verificación de formatos de archivo mediante magic numbers
+Utilidad para verificación de formatos de archivo mediante el nombre de archivo
 """
 
-import magic
+import mimetypes
 from google.cloud import storage
-from google.api_core.exceptions import GoogleAPIError
 import logging
+import os
 
 logger = logging.getLogger(__name__)
 
 def get_file_mime_type(bucket_name, file_name):
     """
-    Obtiene el tipo MIME real de un archivo usando magic numbers
+    Obtiene el tipo MIME real de un archivo basándose en su nombre.
     
     Args:
         bucket_name (str): Nombre del bucket
@@ -21,21 +21,26 @@ def get_file_mime_type(bucket_name, file_name):
         str: Tipo MIME detectado o None en caso de error
     """
     try:
-        client = storage.Client()
-        bucket = client.bucket(bucket_name)
-        blob = bucket.blob(file_name)
+        # Usar la librería mimetypes, que no tiene dependencias externas
+        mime_type, encoding = mimetypes.guess_type(file_name)
         
-        # Descargar los primeros bytes para análisis
-        chunk = blob.download_as_bytes(start=0, end=1024)
-        
-        # Detectar tipo MIME usando magic numbers
-        mime_type = magic.from_buffer(chunk, mime=True)
-        
-        return mime_type
-        
-    except GoogleAPIError as e:
-        logger.error(f"Error de Google Cloud al verificar magic numbers: {e}")
-        return None
+        if mime_type:
+            logger.info(f"Tipo MIME detectado con mimetypes: {mime_type}")
+            return mime_type
+        else:
+            # Si mimetypes falla, se puede intentar adivinar por la extensión
+            ext = os.path.splitext(file_name)[1].lower()
+            if ext == '.mp3':
+                return 'audio/mpeg'
+            elif ext == '.wav':
+                return 'audio/wav'
+            elif ext == '.ogg':
+                return 'audio/ogg'
+            # Puedes añadir más extensiones aquí si lo necesitas
+            
+            logger.warning(f"No se pudo determinar el tipo MIME para el archivo: {file_name}")
+            return None
+            
     except Exception as e:
-        logger.error(f"Error inesperado al verificar magic numbers: {e}")
+        logger.error(f"Error inesperado al verificar tipo MIME: {e}")
         return None
