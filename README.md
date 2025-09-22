@@ -70,4 +70,4 @@ Delivery: Processed data → Reports (with risk analysis), a Dashboard, and a un
 Video: https://youtu.be/KuITitAtRBQ?si=dwNXLLUhuwPxwL7
 
 ⚠️ Important Note
-This is the completed prototype, uploaded without previous version histories. Our team, based in Venezuela, had to work locally due to significant challenges from power outages and unreliable internet connections, a reality of our socio-political context. Despite these difficulties, we are proud to deliver this first version of the prototype.
+This is the completed prototype, uploaded without previous version histories. Our team, based in Venezuela, had to work locally due to significant challenges from power outages and unreliable internet connections, a reality of our socio-political context. Despite these difficulties, we are proud to deliver a working version of the prototype.
